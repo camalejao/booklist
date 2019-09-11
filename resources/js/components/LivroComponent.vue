@@ -16,6 +16,10 @@
 
         <br />
 
+        <h5>Categoria: {{ livro.categoria }}</h5>
+
+        <br />
+
         <h5>Status: {{ this.mostrarStatus(livro.status) }}</h5>
 
         <h5 v-if="livro.avaliacao != null">Nota: {{ livro.avaliacao }}</h5>

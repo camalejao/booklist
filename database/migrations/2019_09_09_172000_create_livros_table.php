@@ -18,6 +18,7 @@ class CreateLivrosTable extends Migration
             $table->unsignedInteger('autor_id');
             $table->string('titulo')->unique();
             $table->text('descricao');
+            $table->string('categoria');
             $table->enum('status', ['lendo', 'completado', 'desejado', 'desistido', 'pausado']);
             $table->unsignedInteger('avaliacao')->nullable();
             $table->timestamps();

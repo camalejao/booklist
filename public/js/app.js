@@ -2046,6 +2046,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_livroMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
@@ -2183,6 +2189,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cadastroMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../cadastroMixin */ "./resources/js/cadastroMixin.js");
 /* harmony import */ var _livroMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../livroMixin */ "./resources/js/livroMixin.js");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2454,6 +2466,9 @@ __webpack_require__.r(__webpack_exports__);
         label: "Autor",
         field: "autor.nome"
       }, {
+        label: "Categoria",
+        field: "categoria"
+      }, {
         label: "Status",
         field: "status"
       }, {
@@ -2475,7 +2490,7 @@ __webpack_require__.r(__webpack_exports__);
     redirecionar: function redirecionar(params) {
       console.log(params.column.field);
 
-      if (params.column.field === "titulo" || params.column.field === "status") {
+      if (params.column.field != "autor.nome") {
         window.location.href = "/livro/" + params.row.id;
       } else if (params.column.field === "autor.nome") {
         window.location.href = "/autor/" + params.row.autor_id;
@@ -2499,6 +2514,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _livroMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../livroMixin */ "./resources/js/livroMixin.js");
+//
+//
+//
+//
 //
 //
 //
@@ -53771,6 +53790,43 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "categoria" } }, [_vm._v("Categoria")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.$props.livro.categoria,
+              expression: "$props.livro.categoria"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            required: "",
+            type: "text",
+            name: "categoria",
+            id: "categoria"
+          },
+          domProps: { value: _vm.$props.livro.categoria },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.$props.livro, "categoria", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _vm.errors && _vm.errors.categoria
+          ? _c("div", { staticClass: "text-danger" }, [
+              _vm._v(_vm._s(_vm.errors.categoria[0]))
+            ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
         _c("label", { attrs: { for: "status" } }, [_vm._v("Status")]),
         _vm._v(" "),
         _c(
@@ -54171,6 +54227,43 @@ var render = function() {
         _vm.errors && _vm.errors.descricao
           ? _c("div", { staticClass: "text-danger" }, [
               _vm._v(_vm._s(_vm.errors.descricao[0]))
+            ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "categoria" } }, [_vm._v("Categoria")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.fields.categoria,
+              expression: "fields.categoria"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            required: "",
+            type: "text",
+            name: "categoria",
+            id: "categoria"
+          },
+          domProps: { value: _vm.fields.categoria },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.fields, "categoria", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _vm.errors && _vm.errors.categoria
+          ? _c("div", { staticClass: "text-danger" }, [
+              _vm._v(_vm._s(_vm.errors.categoria[0]))
             ])
           : _vm._e()
       ]),
@@ -54613,6 +54706,10 @@ var render = function() {
                 _c("p", { staticClass: "h4" }, [
                   _vm._v(_vm._s(_vm.livro.descricao))
                 ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("h5", [_vm._v("Categoria: " + _vm._s(_vm.livro.categoria))]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),

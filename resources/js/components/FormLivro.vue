@@ -22,6 +22,12 @@
         </div>
 
         <div class="form-group">
+            <label for="categoria">Categoria</label>
+            <input required type="text" class="form-control" name="categoria" id="categoria" v-model="fields.categoria"/>
+            <div v-if="errors && errors.categoria" class="text-danger">{{ errors.categoria[0] }}</div>
+        </div>
+
+        <div class="form-group">
             <label for="status">Status</label>
             <select required class="form-control" name="status" id="status" v-model="fields.status">
                 <option v-for="(stat, key) in status" v-bind:key="key" :value="key">{{ stat }}</option>

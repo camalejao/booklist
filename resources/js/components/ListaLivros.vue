@@ -78,6 +78,10 @@ export default {
           field: "autor.nome"
         },
         {
+          label: "Categoria",
+          field: "categoria"
+        },
+        {
           label: "Status",
           field: "status"
         },
@@ -103,7 +107,7 @@ export default {
   methods: {
     redirecionar(params) {
       console.log(params.column.field);
-      if (params.column.field === "titulo" || params.column.field === "status") {
+      if (params.column.field != "autor.nome") {
         window.location.href = "/livro/" + params.row.id;
       } else if (params.column.field === "autor.nome") {
         window.location.href = "/autor/" + params.row.autor_id;
